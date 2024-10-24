@@ -12,8 +12,8 @@ import os
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 
-with open("api_key.json", "r") as f:
-	apis = json.load(f)
+#with open("api_key.json", "r") as f:
+#	apis = json.load(f)
 
 os.environ['GROQ_API_KEY'] = st.secrets['GROQ_API_KEY']
 os.environ['NOMIC_API_KEY'] = st.secrets['NOMIC_API_KEY']
