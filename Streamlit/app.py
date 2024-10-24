@@ -71,15 +71,17 @@ if uploaded_file:
 		st.session_state.conversation_chain = create_chain(st.session_state.vectorstore)
 
 for message in st.session_state.chat_history:
-	with st.chat_message(message['role']):
-		st.markdown(message['content'])
+	with st.chat_message(message["role"]):
+		st.markdown(message["content"])
 
 user_input = st.chat_input("Talk to the bot..")
 
 if user_input:
+	st.session_state.chat_history.append({'role': "user", "content": user_input})
+	
 	with st.chat_message("user"):
 		st.markdown(user_input)
-	st.session_state.chat_history.append({'role': "user", "content": user_input})
+	
 	with st.chat_message("assistant"):
 		response = st.session_state.conversation_chain({'question': user_input})
 		assistant_response = response["answer"]
