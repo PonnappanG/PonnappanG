@@ -15,8 +15,8 @@ working_dir = os.path.dirname(os.path.abspath(__file__))
 with open("api_key.json", "r") as f:
 	apis = json.load(f)
 
-os.environ['GROQ_API_KEY'] = apis['GROQ_API_KEY']
-os.environ['NOMIC_API_KEY'] = apis['NOMIC_API_KEY']
+os.environ['GROQ_API_KEY'] = st.secrets['GROQ_API_KEY']
+os.environ['NOMIC_API_KEY'] = st.secrets['NOMIC_API_KEY']
 
 def load_document(file_path):
 	loader = PyPDFLoader(file_path)
