@@ -77,14 +77,14 @@ for message in st.session_state.chat_history:
 user_input = st.chat_input("Talk to the bot..")
 
 if user_input:
-	st.session_state.chat_history.append({'role': "user", "content": user_input})
-	st.session_state.chat_history.append({'role': "assistant", "content": assistant_response})
+	
 	with st.chat_message("user"):
 		st.markdown(user_input)
+	st.session_state.chat_history.append({'role': "user", "content": user_input})
 	with st.chat_message("assistant"):
 		response = st.session_state.conversation_chain({'question': user_input})
 		assistant_response = response["answer"]
 		st.markdown(assistant_response)
-	
+	st.session_state.chat_history.append({'role': "assistant", "content": assistant_response})
 
 
