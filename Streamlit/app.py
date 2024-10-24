@@ -79,6 +79,8 @@ user_input = st.chat_input("Talk to the bot..")
 if user_input:
 	
 	with st.chat_message("user"):
+		input = st.session_state.conversation_chain({'question': user_input})
+		assistant_response = input["question"]
 		st.markdown(user_input)
 	st.session_state.chat_history.append({'role': "user", "content": user_input})
 	with st.chat_message("assistant"):
