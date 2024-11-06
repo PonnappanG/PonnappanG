@@ -87,5 +87,5 @@ if user_input:
 		response = st.session_state.conversation_chain({'question': user_input})
 		assistant_response = response["answer"]
 		st.markdown(assistant_response)
-	    st.session_state.chat_history.append({'role': "assistant", "content": assistant_response})
+		st.session_state.chat_history.append({'role': "assistant", "content": assistant_response})
 
