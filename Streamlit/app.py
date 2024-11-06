@@ -39,6 +39,7 @@ def create_chain(vectorstore):
 		llm=llm,
 		output_key="answer",
 		memory_key="chat_history",
+		return_messages=True
 	)
 	chain = ConversationalRetrievalChain.from_llm(
 		llm=llm,
